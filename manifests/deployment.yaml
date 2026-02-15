@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eli-lilly-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: eli-lilly
+  template:
+    metadata:
+      labels:
+        app: eli-lilly
+    spec:
+      containers:
+      - name: eli-lilly-container
+        image: eli-lilly-site:1.0
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
